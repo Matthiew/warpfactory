@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package catalog.v1;
+
+option go_package = "github.com/Matthiew/warpfactory/gen/catalog/v1;catalogv1";
+
+service Catalog {
+  rpc ListBooks(ListBooksRequest) returns (ListBooksResponse);
+  rpc ListCars(ListCarsRequest) returns (ListCarsResponse);
+}
+
+message ListBooksRequest {}
+
+message ListBooksResponse {
+  string catalog_label = 1;
+  repeated Book books = 2;
+}
+
+message ListCarsRequest {}
+
+message ListCarsResponse {
+  string catalog_label = 1;
+  repeated Car cars = 2;
+}
+
+message Book {
+  string id = 1;
+  string title = 2;
+  string author = 3;
+}
+
+message Car {
+  string id = 1;
+  string make = 2;
+  string model = 3;
+}
